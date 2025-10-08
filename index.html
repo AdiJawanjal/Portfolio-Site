@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aditya R. Jawanjal – DevOps | Cloud | Linux</title>
+  <meta name="description" content="Portfolio of Aditya Jawanjal – DevOps & Cloud Engineer. Projects in AWS, Terraform, Ansible, Jenkins, Docker, Kubernetes, ArgoCD, Prometheus, Grafana, Loki, Jaeger."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              200: '#c7d2fe',
+              300: '#a5b4fc',
+              400: '#818cf8',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              800: '#3730a3',
+              900: '#312e81'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <script>
+    const storeTheme = (t) => localStorage.setItem('theme', t);
+    const getTheme = () => localStorage.getItem('theme');
+    const applyTheme = (t) => {
+      const root = document.documentElement;
+      if (t === 'dark') root.classList.add('dark');
+      else root.classList.remove('dark');
+    };
+    (function() {
+      const saved = getTheme();
+      if (saved) applyTheme(saved);
+      else if (window.matchMedia('(prefers-color-scheme: dark)').matches) applyTheme('dark');
+    })();
+    function toggleTheme(){
+      const isDark = document.documentElement.classList.toggle('dark');
+      storeTheme(isDark ? 'dark' : 'light');
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Apple Color Emoji', 'Segoe UI Emoji'; }
+    .glass { backdrop-filter: blur(8px); background: rgba(255,255,255,0.5); }
+    .dark .glass { background: rgba(17, 24, 39, 0.5); }
+  </style>
+</head>
+<body class="bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 border-b border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-950/80 glass">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="#home" class="flex items-center gap-2 font-semibold text-lg">
+          <span class="inline-block w-2.5 h-2.5 rounded-full bg-brand-500"></span>
+          Aditya <span class="hidden sm:inline">R.</span><span class="hidden sm:inline">Jawanjal</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="#projects" class="hover:text-brand-600">Projects</a>
+          <a href="#skills" class="hover:text-brand-600">Skills</a>
+          <a href="#education" class="hover:text-brand-600">Education</a>
+          <a href="#contact" class="hover:text-brand-600">Contact</a>
+          <a href="#resume" class="hover:text-brand-600">Resume</a>
+        </nav>
+        <div class="flex items-center gap-3">
+          <a href="0 Aditya Jawanjal Resume.pdf" class="hidden sm:inline-block px-3 py-1.5 rounded-xl bg-brand-600 text-white text-sm hover:bg-brand-700 transition">Download Resume</a>
+          <button aria-label="Toggle theme" onclick="toggleTheme()" class="p-2 rounded-xl border border-gray-200 dark:border-gray-800 hover:border-brand-500 dark:hover:border-brand-500">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M21.64 13A9 9 0 1 1 11 2.36 7 7 0 0 0 21.64 13z"/></svg>
+          </button>
+          <button class="md:hidden p-2 rounded-xl border border-gray-200 dark:border-gray-800" onclick="document.getElementById('mnav').classList.toggle('hidden')" aria-label="Open menu">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+          </button>
+        </div>
+      </div>
+      <div id="mnav" class="md:hidden hidden pb-4 text-sm">
+        <div class="flex flex-col gap-2">
+          <a href="#projects" class="py-1">Projects</a>
+          <a href="#skills" class="py-1">Skills</a>
+          <a href="#education" class="py-1">Education</a>
+          <a href="#contact" class="py-1">Contact</a>
+          <a href="#resume" class="py-1">Resume</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <div class="inline-flex items-center gap-2 rounded-full border border-brand-200 dark:border-brand-800 px-3 py-1 text-xs text-brand-700 dark:text-brand-300">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>
+            Open to DevOps / Cloud & Linux Roles
+          </div>
+          <h1 class="mt-4 text-4xl sm:text-5xl font-extrabold leading-tight">Hi, I’m <span class="text-brand-600">Aditya R. Jawanjal</span>.</h1>
+          <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">Hi! I’m Aditya, a DevOps, Cloud and Linux enthusiast with a strong interest in system administration, cloud platforms, and DevOps tools. I enjoy solving real-world problems using open-source technologies and believe in learning by doing. Over time, I’ve also explored AWS, Docker, Ansible, and Jenkins to deepen my understanding of DevOps and cloud infrastructure. I’m currently looking for opportunities where I can apply my skills, learn from experienced professionals, and grow into a solid Linux/Cloud/DevOps Engineer. Always excited to work on interesting challenges and improve systems behind the scenes.</p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="#projects" class="px-4 py-2 rounded-xl bg-brand-600 text-white hover:bg-brand-700">View Projects</a>
+            <a href="#contact" class="px-4 py-2 rounded-xl border border-gray-300 dark:border-gray-700 hover:border-brand-500">Contact Me</a>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="aspect-[4/3] w-full rounded-2xl border border-gray-200 dark:border-gray-800 p-1">
+            <div class="h-full w-full rounded-xl bg-gradient-to-br from-brand-200/50 to-brand-400/30 dark:from-brand-900/40 dark:to-brand-700/20 grid place-items-center">
+              <div class="text-center p-6">
+                <div class="text-7xl">⚙️</div>
+                <p class="mt-4 font-semibold">Automate • Observe • Recover</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="py-16 sm:py-24 border-t border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/30">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold">Projects</h2>
+      <div class="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Project 1 -->
+        <article class="group rounded-2xl border border-gray-200 dark:border-gray-800 p-5 bg-white dark:bg-gray-950">
+          <h3 class="text-lg font-semibold">Self-Healing Infrastructure with Prometheus, Alertmanager, and Ansible</h3>
+          <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">Monitors NGINX with Prometheus, sends alerts via Alertmanager, and recovers services automatically using Ansible playbooks.</p>
+          <ul class="mt-3 text-xs flex flex-wrap gap-2">
+            <li class="px-2 py-1 rounded-lg border">Prometheus</li>
+            <li class="px-2 py-1 rounded-lg border">Alertmanager</li>
+            <li class="px-2 py-1 rounded-lg border">Ansible</li>
+            <li class="px-2 py-1 rounded-lg border">Docker</li>
+          </ul>
+          <a class="underline mt-3 block" href="https://github.com/AdiJawanjal/Self-Healing-Infra" target="_blank">Repo</a>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="group rounded-2xl border border-gray-200 dark:border-gray-800 p-5 bg-white dark:bg-gray-950">
+          <h3 class="text-lg font-semibold">Build & Deploy Web App with CI/CD Pipeline</h3>
+          <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">Automated Java app build & deploy using Terraform, Jenkins, Maven, Nexus, Tomcat, and monitoring with Grafana & Prometheus.</p>
+          <ul class="mt-3 text-xs flex flex-wrap gap-2">
+            <li class="px-2 py-1 rounded-lg border">Terraform</li>
+            <li class="px-2 py-1 rounded-lg border">Jenkins</li>
+            <li class="px-2 py-1 rounded-lg border">Maven</li>
+            <li class="px-2 py-1 rounded-lg border">Nexus</li>
+            <li class="px-2 py-1 rounded-lg border">Tomcat</li>
+            <li class="px-2 py-1 rounded-lg border">Grafana</li>
+            <li class="px-2 py-1 rounded-lg border">Prometheus</li>
+          </ul>
+          <a class="underline mt-3 block" href="https://github.com/AdiJawanjal/Build-Deploy-Web-App-with-CI-CD-Pipeline.git" target="_blank">Repo</a>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="group rounded-2xl border border-gray-200 dark:border-gray-800 p-5 bg-white dark:bg-gray-950">
+          <h3 class="text-lg font-semibold">AutoInfraAlert – End-to-End Cloud Monitoring & Deployment</h3>
+          <p class="mt-2 text-sm text-gray-600 dark:text-gray-300"> Built a fully automated cloud infrastructure on AWS using Terraform, Ansible, Docker, Prometheus, Grafana, and Alertmanager.
+The system monitors 10 EC2 instances and triggers an email alert when CPU load exceeds 85%, ensuring proactive monitoring and zero downtime.
+A complete hands-on experience in Infrastructure-as-Code (IaC), automation, and cloud observability.</p>
+          <ul class="mt-3 text-xs flex flex-wrap gap-2">
+            <li class="px-2 py-1 rounded-lg border">Linux</li>
+            <li class="px-2 py-1 rounded-lg border">Terraform</li>
+            <li class="px-2 py-1 rounded-lg border">Ansible</li>
+            <li class="px-2 py-1 rounded-lg border">Prometheus</li>
+            <li class="px-2 py-1 rounded-lg border">Alertmanager</li>
+            <li class="px-2 py-1 rounded-lg border">Grafana</li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="py-16 sm:py-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold">Skills</h2>
+      <div class="mt-8 grid md:grid-cols-3 gap-6">
+        <div class="p-6 border rounded-2xl">
+          <h3 class="font-semibold">Cloud</h3>
+          <ul class="mt-3 text-sm list-disc list-inside">
+            <li>AWS (EC2, S3, RDS, Lambda, IAM, VPC)</li>
+            <li>Cloud Watch, Route 53, Elastic Load Balancer, CloudTrail, SNS</li>
+            <li>Basic of GCP and Azure</li>
+          </ul>
+        </div>
+        <div class="p-6 border rounded-2xl">
+          <h3 class="font-semibold">DevOps Tools</h3>
+          <ul class="mt-3 text-sm list-disc list-inside">
+            <li>Git, GitHub, Jenkins, Terraform, Ansible</li>
+            <li>Docker, Kubernetes, Helm, ArgoCD</li>
+            <li>Prometheus, Grafana, Loki, Jaeger</li>
+            <li>GitHub Action, NGINX, Apache</li>
+          </ul>
+        </div>
+        <div class="p-6 border rounded-2xl">
+          <h3 class="font-semibold">Linux Administration</h3>
+          <ul class="mt-3 text-sm list-disc list-inside">
+            <li>Ubuntu, Amazon Linux, RHEL (Red Hat Linux), CentOS</li>
+            <li>Linux Commands, System Administration</li>
+            <li> Permissions Package Management, System Hardening
+            <li> User & Group Management, Cron Jobs, Basic Bash Scripting</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education" class="py-16 sm:py-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold">Education & Certifications</h2>
+      <div class="mt-6 grid md:grid-cols-2 gap-6">
+        <div class="p-6 border rounded-2xl">
+          <h3 class="font-semibold">B.E. in Information Technology</h3>
+          <p class="text-sm">Graduate • H.V.P.M. College of Engineering and Technology, Amravati</p>
+        </div>
+        <div class="p-6 border rounded-2xl">
+          <h3 class="font-semibold">Certificates</h3>
+          <ul class="mt-2 text-sm list-disc list-inside">
+            <li>Naresh IT DevOps with AWS Course</li>
+            <li>freeCodeCamp Responsive Web Design Certificate</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-16 sm:py-24 border-t bg-gray-50 dark:bg-gray-900/30">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold">Contact</h2>
+      <div class="mt-6">
+        <p>Email: <a href="mailto:jawanjaladi1@gmail.com" class="underline">jawanjaladi1@gmail.com</a></p>
+        <p>GitHub: <a href="https://github.com/AdiJawanjal" class="underline">github.com/AdiJawanjal</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/aditya-jawanjal-b06ab5230/" class="underline">linkedin.com/in/aditya-jawanjal</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="resume" class="py-10 border-t">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-sm flex justify-between">
+      <p>© <span id="year"></span> Aditya Jawanjal. All rights reserved.</p>
+      <a href="#home" class="underline">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
